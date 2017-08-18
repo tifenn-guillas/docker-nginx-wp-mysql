@@ -1,0 +1,6 @@
+/docker/etc/mysql/lib/*
+/docker/conf/logs/*
+
+/src/*
+
+.idea

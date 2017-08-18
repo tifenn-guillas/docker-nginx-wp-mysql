@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+
+    wordpress:
+        image: wordpress
+        container_name: wordpress
+        links:
+            - mysql:container_mysql
+        ports:
+            - 80:80
+        volumes:
+            - ./docker/conf/supervisor/conf.d:/etc/supervisor/conf.d
+            - ./docker/conf/nginx:/etc/nginx
+            - ./docker/conf/logs:/var/www/logs
+            - ./src:/var/www/html
+        environment:
+            WORDPRESS_DB_HOST: container_mysql
+            WORDPRESS_DB_PASSWORD: root
+
+    mysql:
+        image: app_mysql
+        container_name: mysql
+        ports:
+            - 3306:3306
+        volumes:
+            - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
+            - ./docker/etc/mysql/lib:/var/lib/mysql
+            - ./docker/etc/mysql/logs:/var/log/mysql
+        environment:
+                MYSQL_ROOT_PASSWORD: root
+                MYSQL_DATABASE: wordpress
