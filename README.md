@@ -13,26 +13,19 @@ A Wordpress application with NGINX and all that in Docker
 
 Create images for Docker
 ```console
-chmod +x create-images.sh
-./create-images.sh
+make
 ```
 
 Define permissions in folders & conf files
 ```console
-chmod +x install.sh
-./install.sh
-```
-
-Install application
-```console
-docker-compose run wordpress install
+make install
 ```
 
 ## Launch the application
 
 Run the cluster
 ```console
-docker-compose up
+make run
 ```
 
 Be carefull, at the first run, Wordpress will create all tables that it need to works. To Wordpress can access to the database, you need to fill fields like this:
