@@ -9,7 +9,7 @@ debug:
 	docker run -it --rm --entrypoint=/bin/bash $(NAME_1):latest
 
 install:
-	chmod -Rf 777 docker/
+	chmod -Rf 777 docker || true
 	chmod 644 docker/etc/mysql/my.cnf
 	rm -rf src
 	mkdir src
