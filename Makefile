@@ -11,6 +11,7 @@ debug:
 install:
 	chmod -Rf 777 docker/
 	chmod 644 docker/etc/mysql/my.cnf
+	mkdir src
 	docker-compose run wordpress install
 
 run:
