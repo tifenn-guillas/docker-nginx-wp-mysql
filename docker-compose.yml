@@ -19,12 +19,11 @@ services:
             WORDPRESS_DB_PASSWORD: root
 
     mysql:
-        image: app_mysql
+        image: mysql:5.7
         container_name: mysql
         ports:
             - 3306:3306
         volumes:
-            - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
             - ./docker/etc/mysql/lib:/var/lib/mysql
             - ./docker/etc/mysql/logs:/var/log/mysql
         environment:
