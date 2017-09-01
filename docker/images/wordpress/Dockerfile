@@ -1,6 +1,7 @@
 FROM anthonykgross/docker-base:latest
 
-MAINTAINER Anthony K GROSS
+LABEL author="Tifenn Guillas" \
+      github="https://github.com/tifenn-guillas/docker-nginx-wp-mysql"
 
 WORKDIR /var/www/html
 
